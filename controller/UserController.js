@@ -221,7 +221,7 @@ const todoHasnt = async (req, res) => {
     const { task_id } = req.params;
     const dataTodo = await TodoModel.findAll({
       attributes: ["id", "title", "active", "priority", "deadline", "reminder"],
-      where: { task_id: task_id, active: "active" },
+      where: { task_id: task_id, active: 0 },
     });
     return res.json({
       data: dataTodo,
@@ -240,7 +240,7 @@ const todoDone = async (req, res) => {
     const { task_id } = req.params;
     const dataTodo = await TodoModel.findAll({
       attributes: ["id", "title", "active", "priority", "deadline", "reminder"],
-      where: { task_id: task_id, active: "non-active" },
+      where: { task_id: task_id, active: 1 },
     });
     return res.json({
       data: dataTodo,
@@ -404,5 +404,5 @@ module.exports = {
   updateTask,
   taskAndTodo,
   perbaruiTodo,
-  taskDone
+  taskDone,
 };
