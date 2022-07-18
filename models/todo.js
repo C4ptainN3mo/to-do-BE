@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   todo.init({
     task_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    active: DataTypes.ENUM(0, 1),
+    active: DataTypes.ENUM("active", "non-active"),
     priority: DataTypes.ENUM("urgent", "medium"),
     deadline: DataTypes.TIME,
     reminder: DataTypes.ENUM("day", "week"),

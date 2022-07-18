@@ -22,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       active: {
-        type: Sequelize.ENUM(0, 1),
+        type: Sequelize.ENUM("active", "non-active"),
       },
       priority: {
         type: Sequelize.ENUM("urgent", "medium"),
